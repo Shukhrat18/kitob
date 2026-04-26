@@ -3,214 +3,124 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>📚 eKitob — Китобхонаи Ман (Pro)</title>
+<title>📚 eKitob — Китобхонаи Ман</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* ========== ТЕМАҲО ========== */
 :root {
-  --bg: #1a1a2e;
-  --bg2: #16213e;
-  --bg3: #0f3460;
-  --card-bg: rgba(255,255,255,0.05);
-  --card-bg2: rgba(255,255,255,0.09);
-  --text: #f0f0f8;
-  --text2: #9aa0c0;
-  --border: rgba(255,255,255,0.08);
+  --ink: #1a1a2e;
+  --ink2: #16213e;
+  --ink3: #0f3460;
   --gold: #e2b04a;
   --gold2: #f5c842;
   --teal: #00c9a7;
   --rose: #e05a77;
   --blue: #4facfe;
+  --text: #f0f0f8;
+  --text2: #9aa0c0;
+  --border: rgba(255,255,255,0.08);
+  --card: rgba(255,255,255,0.05);
+  --card2: rgba(255,255,255,0.09);
   --r: 18px;
   --shadow: 0 12px 40px rgba(0,0,0,0.5);
-  --nav-bg: rgba(26,26,46,0.92);
 }
-
-body.light-mode {
-  --bg: #f5f5f5;
-  --bg2: #e8e8e8;
-  --bg3: #d0d0d0;
-  --card-bg: rgba(0,0,0,0.03);
-  --card-bg2: rgba(0,0,0,0.06);
-  --text: #1a1a2e;
-  --text2: #555;
-  --border: rgba(0,0,0,0.08);
-  --shadow: 0 12px 40px rgba(0,0,0,0.15);
-  --nav-bg: rgba(245,245,245,0.92);
-}
-
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  font-family:'Nunito',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  min-height:100vh;
-  overflow-x:hidden;
-  transition: background 0.3s, color 0.3s;
-}
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:var(--bg2)}
-::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+body{font-family:'Nunito',sans-serif;background:var(--ink);color:var(--text);min-height:100vh;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--ink2)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
 
-body::before{
-  content:'';
-  position:fixed;inset:0;
+body::before{content:'';position:fixed;inset:0;
   background:radial-gradient(ellipse 60% 50% at 20% 10%,rgba(226,176,74,0.08),transparent),
   radial-gradient(ellipse 50% 60% at 80% 90%,rgba(0,201,167,0.07),transparent),
   radial-gradient(ellipse 40% 40% at 60% 40%,rgba(79,172,254,0.05),transparent);
-  pointer-events:none;z-index:0;
-}
-body.light-mode::before{opacity:0.5}
+  pointer-events:none;z-index:0}
 
-/* NAV */
-nav{
-  position:sticky;top:0;z-index:100;
-  display:flex;align-items:center;gap:16px;
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:16px;
   padding:0 24px;height:62px;
-  background:var(--nav-bg);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-  transition: background 0.3s;
-}
-.logo{
-  font-family:'Playfair Display',serif;font-size:22px;font-weight:900;
-  background:linear-gradient(135deg,var(--gold),var(--teal));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  white-space:nowrap;
-}
+  background:rgba(26,26,46,0.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border)}
+.logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;
+  background:linear-gradient(135deg,var(--gold),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  white-space:nowrap}
 .nav-search{flex:1;position:relative;max-width:460px}
-.nav-search input{
-  width:100%;padding:9px 16px 9px 40px;border-radius:24px;
-  background:var(--card-bg);border:1px solid var(--border);
-  color:var(--text);font-family:'Nunito',sans-serif;font-size:14px;
-  outline:none;transition:.2s;
-}
-.nav-search input:focus{border-color:var(--gold);background:var(--card-bg2)}
+.nav-search input{width:100%;padding:9px 16px 9px 40px;border-radius:24px;
+  background:rgba(255,255,255,0.07);border:1px solid var(--border);
+  color:var(--text);font-family:'Nunito',sans-serif;font-size:14px;outline:none;transition:.2s}
+.nav-search input:focus{border-color:var(--gold);background:rgba(255,255,255,0.1)}
 .nav-search .si{position:absolute;left:13px;top:50%;transform:translateY(-50%);opacity:.5;font-size:16px}
-.nav-btns{display:flex;gap:8px;margin-left:auto;align-items:center}
-.nav-btn{
-  padding:8px 16px;border-radius:20px;border:1px solid var(--border);
-  background:var(--card-bg);color:var(--text2);cursor:pointer;
-  font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;transition:.2s;
-}
+.nav-btns{display:flex;gap:8px;margin-left:auto}
+.nav-btn{padding:8px 16px;border-radius:20px;border:1px solid var(--border);
+  background:var(--card);color:var(--text2);cursor:pointer;
+  font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;transition:.2s}
 .nav-btn:hover{border-color:var(--gold);color:var(--gold)}
 .nav-btn.active{background:var(--gold);color:#1a1a2e;border-color:var(--gold)}
-.theme-toggle{
-  padding:8px 12px;border-radius:20px;border:1px solid var(--border);
-  background:var(--card-bg);color:var(--text);cursor:pointer;
-  font-size:16px;transition:.2s;
-}
-.theme-toggle:hover{background:var(--card-bg2);border-color:var(--gold)}
 
-/* LAYOUT */
 .layout{display:flex;min-height:calc(100vh - 62px);position:relative;z-index:1}
 
-/* SIDEBAR */
-aside{
-  width:220px;min-height:calc(100vh - 62px);background:var(--bg2);
+aside{width:220px;min-height:calc(100vh - 62px);background:var(--ink2);
   border-right:1px solid var(--border);padding:20px 12px;
-  position:sticky;top:62px;height:calc(100vh - 62px);
-  overflow-y:auto;flex-shrink:0;transition: background 0.3s;
-}
-.sb-title{
-  font-size:10px;text-transform:uppercase;letter-spacing:1.5px;
-  color:var(--text2);padding:0 10px 8px;margin-top:16px;
-}
-.sb-item{
-  display:flex;align-items:center;gap:9px;padding:9px 10px;
-  border-radius:12px;cursor:pointer;color:var(--text2);
-  font-size:13px;font-weight:600;transition:.2s;margin-bottom:2px;
-}
-.sb-item:hover{background:var(--card-bg2);color:var(--text)}
+  position:sticky;top:62px;height:calc(100vh - 62px);overflow-y:auto;flex-shrink:0}
+.sb-title{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text2);
+  padding:0 10px 8px;margin-top:16px}
+.sb-item{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:12px;
+  cursor:pointer;color:var(--text2);font-size:13px;font-weight:600;transition:.2s;margin-bottom:2px}
+.sb-item:hover{background:var(--card2);color:var(--text)}
 .sb-item.active{background:rgba(226,176,74,0.15);color:var(--gold)}
 .sb-item .ic{font-size:17px;min-width:20px;text-align:center}
-.sb-count{
-  margin-left:auto;background:var(--card-bg);border-radius:10px;
-  padding:2px 7px;font-size:11px;color:var(--text2);
-}
+.sb-count{margin-left:auto;background:rgba(255,255,255,0.1);border-radius:10px;
+  padding:2px 7px;font-size:11px;color:var(--text2)}
 .sb-item.active .sb-count{background:rgba(226,176,74,0.2);color:var(--gold)}
 
-/* MAIN */
 main{flex:1;padding:28px;overflow-x:hidden}
 
-/* HERO */
-.hero{
-  border-radius:24px;padding:36px 40px;margin-bottom:28px;
+.hero{border-radius:24px;padding:36px 40px;margin-bottom:28px;
   background:linear-gradient(135deg,rgba(226,176,74,0.12),rgba(0,201,167,0.08));
-  border:1px solid rgba(226,176,74,0.2);position:relative;overflow:hidden;
-}
-.hero::after{
-  content:'📚';position:absolute;right:32px;top:50%;
-  transform:translateY(-50%);font-size:100px;opacity:.1;
-}
-.hero h2{
-  font-family:'Playfair Display',serif;font-size:30px;font-weight:900;
-  background:linear-gradient(135deg,var(--gold2),var(--teal));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
+  border:1px solid rgba(226,176,74,0.2);position:relative;overflow:hidden}
+.hero::after{content:'📚';position:absolute;right:32px;top:50%;transform:translateY(-50%);
+  font-size:100px;opacity:.1}
+.hero h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero p{color:var(--text2);font-size:14px;margin-top:6px;max-width:400px;line-height:1.7}
 .hero-stats{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap}
 .hs{text-align:center}
 .hs .v{font-size:26px;font-weight:800;color:var(--gold)}
 .hs .l{font-size:11px;color:var(--text2);margin-top:2px}
 
-/* SECTION */
 .sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
 .sec-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700}
 .view-tog{display:flex;gap:4px}
-.vb{
-  width:32px;height:32px;border:1px solid var(--border);
-  background:var(--card-bg);border-radius:8px;color:var(--text2);
-  cursor:pointer;font-size:15px;display:flex;align-items:center;
-  justify-content:center;transition:.2s;
-}
+.vb{width:32px;height:32px;border:1px solid var(--border);background:var(--card);
+  border-radius:8px;color:var(--text2);cursor:pointer;font-size:15px;
+  display:flex;align-items:center;justify-content:center;transition:.2s}
 .vb:hover,.vb.active{background:var(--gold);color:#1a1a2e;border-color:var(--gold)}
 
-/* FILTERS */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-.fb{
-  padding:6px 14px;border:1px solid var(--border);border-radius:20px;
-  background:var(--card-bg);color:var(--text2);cursor:pointer;
-  font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;transition:.2s;
-}
+.fb{padding:6px 14px;border:1px solid var(--border);border-radius:20px;
+  background:var(--card);color:var(--text2);cursor:pointer;
+  font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;transition:.2s}
 .fb:hover{border-color:var(--gold);color:var(--text)}
 .fb.active{background:var(--gold);border-color:var(--gold);color:#1a1a2e}
 
-/* BOOKS GRID */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px}
 .grid.lv{grid-template-columns:1fr;gap:10px}
 
-/* BOOK CARD */
-.bcard{
-  background:var(--card-bg);border:1px solid var(--border);
-  border-radius:var(--r);overflow:hidden;cursor:pointer;
-  transition:transform .2s,box-shadow .2s,border-color .2s;
-  animation:fup .35s ease both;
-}
-.bcard:hover{
-  transform:translateY(-5px);box-shadow:var(--shadow);
-  border-color:rgba(226,176,74,0.35);
-}
+.bcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s;
+  animation:fup .35s ease both}
+.bcard:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(226,176,74,0.35)}
 @keyframes fup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 
-.bcover{
-  height:150px;display:flex;align-items:center;justify-content:center;
-  font-size:56px;position:relative;overflow:hidden;
-}
+.bcover{height:150px;display:flex;align-items:center;justify-content:center;
+  font-size:56px;position:relative;overflow:hidden}
 .bcover.pdf{background:linear-gradient(135deg,rgba(224,90,119,0.2),rgba(224,90,119,0.35))}
 .bcover.doc,.bcover.docx{background:linear-gradient(135deg,rgba(79,172,254,0.2),rgba(79,172,254,0.35))}
 .bcover.ppt,.bcover.pptx{background:linear-gradient(135deg,rgba(255,140,80,0.2),rgba(255,140,80,0.35))}
 .bcover.xls,.bcover.xlsx{background:linear-gradient(135deg,rgba(0,201,167,0.2),rgba(0,201,167,0.35))}
-.bcover.mp4,.bcover.avi,.bcover.mkv,.bcover.mov,.bcover.webm{background:linear-gradient(135deg,rgba(155,89,182,0.2),rgba(155,89,182,0.35))}
+.bcover.mp4,.bcover.avi,.bcover.mkv,.bcover.mov{background:linear-gradient(135deg,rgba(155,89,182,0.2),rgba(155,89,182,0.35))}
 .bcover.mp3,.bcover.wav{background:linear-gradient(135deg,rgba(52,201,255,0.2),rgba(52,201,255,0.35))}
 .bcover.other{background:linear-gradient(135deg,rgba(150,150,150,0.15),rgba(150,150,150,0.25))}
 
-.ext-badge{
-  position:absolute;top:10px;left:10px;border-radius:7px;
-  padding:3px 8px;font-size:11px;font-weight:800;
-  text-transform:uppercase;color:#fff;letter-spacing:.5px;
-}
+.ext-badge{position:absolute;top:10px;left:10px;border-radius:7px;padding:3px 8px;
+  font-size:11px;font-weight:800;text-transform:uppercase;color:#fff;letter-spacing:.5px}
 .ext-badge.pdf{background:rgba(224,90,119,.85)}
 .ext-badge.doc,.ext-badge.docx{background:rgba(79,172,254,.85)}
 .ext-badge.ppt,.ext-badge.pptx{background:rgba(255,140,80,.85)}
@@ -218,203 +128,126 @@ main{flex:1;padding:28px;overflow-x:hidden}
 .ext-badge.video{background:rgba(155,89,182,.85)}
 .ext-badge.audio{background:rgba(52,201,255,.85)}
 
-.cat-chip{
-  position:absolute;bottom:10px;right:10px;border-radius:7px;
-  padding:3px 8px;font-size:10px;font-weight:700;
-  background:rgba(0,0,0,.5);color:rgba(255,255,255,.8);
-}
+.cat-chip{position:absolute;bottom:10px;right:10px;border-radius:7px;padding:3px 8px;
+  font-size:10px;font-weight:700;background:rgba(0,0,0,.5);color:rgba(255,255,255,.8)}
 
 .binfo{padding:12px 14px}
-.bname{
-  font-size:13px;font-weight:700;line-height:1.4;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
-}
+.bname{font-size:13px;font-weight:700;line-height:1.4;display:-webkit-box;
+  -webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .bmeta{font-size:11px;color:var(--text2);margin-top:5px;display:flex;gap:8px;align-items:center}
 
 .bactions{display:flex;gap:8px;padding:0 14px 14px}
-.ba{
-  flex:1;padding:7px;border:none;border-radius:9px;cursor:pointer;
-  font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;transition:.2s;
-}
+.ba{flex:1;padding:7px;border:none;border-radius:9px;cursor:pointer;
+  font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;transition:.2s}
 .ba.view{background:rgba(79,172,254,.15);color:var(--blue)}
 .ba.view:hover{background:var(--blue);color:#fff}
 .ba.dl{background:rgba(226,176,74,.15);color:var(--gold)}
 .ba.dl:hover{background:var(--gold);color:#1a1a2e}
 
-/* LIST VIEW */
 .grid.lv .bcard{display:flex;flex-direction:row;height:78px}
 .grid.lv .bcover{width:78px;min-width:78px;height:78px;font-size:30px}
 .grid.lv .binfo{flex:1;padding:10px 12px;display:flex;flex-direction:column;justify-content:center}
 .grid.lv .bname{-webkit-line-clamp:1}
 .grid.lv .bactions{padding:10px 12px 10px 0;align-items:center;gap:6px}
 
-/* EMPTY */
 .empty{grid-column:1/-1;text-align:center;padding:70px 20px;color:var(--text2)}
 .empty .ei{font-size:70px;opacity:.4;margin-bottom:14px}
 .empty h3{font-size:18px;margin-bottom:6px}
 .empty p{font-size:13px;opacity:.7}
 
-/* ===== ADMIN PANEL ===== */
+/* ADMIN PANEL */
 #adminPage{display:none}
 .admin-wrap{max-width:900px}
-.admin-hero{
-  background:linear-gradient(135deg,rgba(226,176,74,0.1),rgba(79,172,254,0.1));
-  border:1px solid rgba(226,176,74,0.2);border-radius:20px;
-  padding:28px;margin-bottom:28px;
-}
+.admin-hero{background:linear-gradient(135deg,rgba(226,176,74,0.1),rgba(79,172,254,0.1));
+  border:1px solid rgba(226,176,74,0.2);border-radius:20px;padding:28px;margin-bottom:28px}
 .admin-hero h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:900}
 .admin-hero p{color:var(--text2);font-size:13px;margin-top:4px}
 
 .admin-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
-.astat{
-  background:var(--card-bg);border:1px solid var(--border);
-  border-radius:16px;padding:20px;text-align:center;
-}
+.astat{background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:20px;text-align:center}
 .astat .v{font-size:32px;font-weight:900;color:var(--gold)}
 .astat .l{font-size:12px;color:var(--text2);margin-top:4px}
 
-/* UPLOAD ZONE */
-.upload-zone{
-  border:2px dashed rgba(226,176,74,0.4);border-radius:20px;
-  padding:40px;text-align:center;cursor:pointer;transition:.3s;
-  margin-bottom:24px;background:rgba(226,176,74,0.03);
-}
+.password-section{background:var(--card);border:1px solid var(--border);
+  border-radius:14px;padding:16px;margin-bottom:20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.password-section span{font-weight:700;font-size:14px}
+.password-section input{padding:8px 12px;border-radius:8px;background:var(--ink2);
+  border:1px solid var(--border);color:var(--text);font-family:'Nunito',sans-serif;font-size:13px;outline:none}
+.password-section input:focus{border-color:var(--gold)}
+.password-section button{padding:8px 16px;border-radius:8px;border:none;cursor:pointer;
+  font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;transition:.2s;
+  background:var(--teal);color:#fff}
+.password-section button:hover{background:#00a88a}
+
+.cat-selector{margin-bottom:24px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.cat-selector label{font-weight:700;font-size:14px;color:var(--text)}
+.cat-selector select{padding:10px 16px;border-radius:12px;background:var(--card);
+  border:1px solid var(--border);color:var(--text);font-family:'Nunito',sans-serif;
+  font-size:14px;cursor:pointer;outline:none;transition:.2s}
+.cat-selector select:focus{border-color:var(--gold)}
+
+.upload-zone{border:2px dashed rgba(226,176,74,0.4);border-radius:20px;
+  padding:40px;text-align:center;cursor:pointer;transition:.3s;margin-bottom:24px;
+  background:rgba(226,176,74,0.03)}
 .upload-zone:hover,.upload-zone.drag{border-color:var(--gold);background:rgba(226,176,74,0.08)}
 .upload-zone .uz-icon{font-size:52px;margin-bottom:12px}
 .upload-zone h3{font-size:18px;font-weight:700;margin-bottom:6px}
 .upload-zone p{font-size:13px;color:var(--text2)}
 .upload-zone input{display:none}
 
-/* CATEGORY SELECTOR */
-.cat-selector{margin-bottom:24px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.cat-selector label{font-weight:700;font-size:14px;color:var(--text)}
-.cat-selector select{
-  padding:10px 16px;border-radius:12px;background:var(--card-bg);
-  border:1px solid var(--border);color:var(--text);
-  font-family:'Nunito',sans-serif;font-size:14px;cursor:pointer;
-  outline:none;transition:.2s;
-}
-.cat-selector select:focus{border-color:var(--gold)}
-
-/* BOOK LIST ADMIN */
-.book-list-admin{
-  background:var(--card-bg);border:1px solid var(--border);
-  border-radius:18px;overflow:hidden;
-}
-.bla-header{
-  display:grid;grid-template-columns:1fr 100px 120px 90px 80px;
-  gap:12px;padding:12px 16px;background:var(--bg2);
-  font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text2);
-}
-.bla-row{
-  display:grid;grid-template-columns:1fr 100px 120px 90px 80px;
+.book-list-admin{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden}
+.bla-header{display:grid;grid-template-columns:1fr 100px 120px 90px 80px;
+  gap:12px;padding:12px 16px;background:var(--ink2);
+  font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text2)}
+.bla-row{display:grid;grid-template-columns:1fr 100px 120px 90px 80px;
   gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);
-  font-size:13px;align-items:center;transition:.15s;
-}
+  font-size:13px;align-items:center;transition:.15s}
 .bla-row:last-child{border-bottom:none}
-.bla-row:hover{background:var(--card-bg2)}
+.bla-row:hover{background:var(--card2)}
 .bla-name{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.bla-ext{
-  padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700;
-  text-align:center;background:var(--card-bg);
-}
-.cat-sel{
-  background:var(--bg2);border:1px solid var(--border);border-radius:8px;
-  color:var(--text);font-family:'Nunito',sans-serif;font-size:12px;
-  padding:4px 8px;outline:none;cursor:pointer;
-}
+.bla-ext{padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700;
+  text-align:center;background:rgba(255,255,255,0.08)}
+.cat-sel{background:var(--ink2);border:1px solid var(--border);border-radius:8px;
+  color:var(--text);font-family:'Nunito',sans-serif;font-size:12px;padding:4px 8px;
+  outline:none;cursor:pointer}
 .cat-sel:focus{border-color:var(--gold)}
-.btn-rm{
-  background:rgba(224,90,119,.15);border:none;color:var(--rose);
-  border-radius:7px;padding:5px 10px;cursor:pointer;
-  font-size:12px;font-weight:700;transition:.2s;
-}
+.btn-rm{background:rgba(224,90,119,.15);border:none;color:var(--rose);border-radius:7px;
+  padding:5px 10px;cursor:pointer;font-size:12px;font-weight:700;transition:.2s}
 .btn-rm:hover{background:var(--rose);color:#fff}
 
-/* ===== LOGIN SCREEN ===== */
-.login-overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,0.8);
-  backdrop-filter:blur(10px);display:flex;align-items:center;
-  justify-content:center;z-index:300;
-}
-.login-box{
-  background:var(--bg2);border:1px solid var(--border);
-  border-radius:20px;padding:40px;text-align:center;
-  width:100%;max-width:400px;box-shadow:var(--shadow);
-}
+/* LOGIN */
+.login-overlay{display:none;position:fixed;inset:0;z-index:300;
+  background:rgba(0,0,0,.85);backdrop-filter:blur(10px);
+  align-items:center;justify-content:center}
+.login-overlay.open{display:flex}
+.login-box{background:var(--ink2);border:1px solid var(--border);border-radius:20px;
+  padding:40px;text-align:center;width:100%;max-width:400px;box-shadow:var(--shadow)}
 .login-box h2{font-family:'Playfair Display',serif;font-size:24px;margin-bottom:20px}
-.login-box input{
-  width:100%;padding:12px 16px;border-radius:12px;
-  background:var(--card-bg);border:1px solid var(--border);
+.login-box input{width:100%;padding:12px 16px;border-radius:12px;
+  background:var(--card);border:1px solid var(--border);
   color:var(--text);font-family:'Nunito',sans-serif;font-size:14px;
-  margin-bottom:12px;outline:none;transition:.2s;
-}
+  margin-bottom:12px;outline:none}
 .login-box input:focus{border-color:var(--gold)}
-.login-box button{
-  padding:12px 24px;background:linear-gradient(135deg,var(--gold),var(--gold2));
-  border:none;border-radius:12px;color:#1a1a2e;font-weight:800;
-  font-size:14px;cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s;
-}
-.login-box button:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(226,176,74,.4)}
+.login-box button{padding:12px 24px;background:linear-gradient(135deg,var(--gold),var(--gold2));
+  border:none;border-radius:12px;color:#1a1a2e;font-weight:800;font-size:14px;
+  cursor:pointer;font-family:'Nunito',sans-serif}
 .login-error{color:var(--rose);font-size:13px;margin-top:8px;display:none}
 
-/* PASSWORD SETTINGS */
-.password-settings{
-  background:var(--card-bg);border:1px solid var(--border);
-  border-radius:14px;padding:16px;margin-bottom:20px;
-  display:flex;gap:10px;align-items:center;flex-wrap:wrap;
-}
-.password-settings input{
-  padding:8px 12px;border-radius:8px;background:var(--bg2);
-  border:1px solid var(--border);color:var(--text);
-  font-family:'Nunito',sans-serif;font-size:13px;outline:none;
-}
-.password-settings input:focus{border-color:var(--gold)}
-.password-settings button{
-  padding:8px 16px;border-radius:8px;border:none;cursor:pointer;
-  font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;transition:.2s;
-}
-.btn-save{background:var(--teal);color:#fff}
-.btn-save:hover{background:#00a88a}
-
-/* STORAGE INFO */
-.storage-info{
-  background:var(--card-bg);border:1px solid var(--border);
-  border-radius:14px;padding:16px;margin-bottom:20px;
-  font-size:13px;color:var(--text2);
-}
-.storage-info strong{color:var(--gold)}
-.storage-bar{
-  width:100%;height:8px;background:var(--bg3);border-radius:4px;
-  margin-top:8px;overflow:hidden;
-}
-.storage-fill{
-  height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));
-  border-radius:4px;transition:width .3s;
-}
-
-/* Modal */
-.moverlay{
-  display:none;position:fixed;inset:0;z-index:200;
+/* MODAL */
+.moverlay{display:none;position:fixed;inset:0;z-index:200;
   background:rgba(0,0,0,.85);backdrop-filter:blur(10px);
-  align-items:center;justify-content:center;padding:16px;
-}
+  align-items:center;justify-content:center;padding:16px}
 .moverlay.open{display:flex}
-.modal{
-  background:var(--bg2);border:1px solid var(--border);
-  border-radius:24px;width:100%;max-width:900px;max-height:92vh;
-  overflow-y:auto;box-shadow:0 30px 100px rgba(0,0,0,.9);
-  animation:min .3s cubic-bezier(.16,1,.3,1);
-}
+.modal{background:var(--ink2);border:1px solid var(--border);border-radius:24px;
+  width:100%;max-width:720px;max-height:92vh;overflow-y:auto;
+  box-shadow:0 30px 100px rgba(0,0,0,.9);animation:min .3s cubic-bezier(.16,1,.3,1)}
 @keyframes min{from{opacity:0;transform:scale(.92) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
 .mhead{padding:24px 24px 0;display:flex;align-items:flex-start;justify-content:space-between}
 .mtitle{font-family:'Playfair Display',serif;font-size:20px;font-weight:900}
-.mclose{
-  width:32px;height:32px;border:1px solid var(--border);
-  background:var(--card-bg);border-radius:8px;color:var(--text2);
-  cursor:pointer;font-size:18px;display:flex;align-items:center;
-  justify-content:center;transition:.2s;
-}
+.mclose{width:32px;height:32px;border:1px solid var(--border);background:var(--card);
+  border-radius:8px;color:var(--text2);cursor:pointer;font-size:18px;
+  display:flex;align-items:center;justify-content:center;transition:.2s}
 .mclose:hover{background:var(--rose);color:#fff;border-color:var(--rose)}
 .mbody{padding:20px 24px 24px}
 .mtags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
@@ -422,68 +255,44 @@ main{flex:1;padding:28px;overflow-x:hidden}
 .mtag.t{background:rgba(226,176,74,.15);color:var(--gold)}
 .mtag.c{background:rgba(0,201,167,.15);color:var(--teal)}
 .mtag.s{background:rgba(255,255,255,.05);color:var(--text2)}
-.reader{
-  width:100%;height:500px;border:1px solid var(--border);
-  border-radius:14px;margin-bottom:16px;background:#fff;
-}
+.reader{width:100%;height:480px;border:1px solid var(--border);border-radius:14px;margin-bottom:16px}
 .mactions{display:flex;gap:10px}
-.btn-dl-full{
-  flex:1;padding:12px;background:linear-gradient(135deg,var(--gold),var(--gold2));
-  border:none;border-radius:12px;color:#1a1a2e;font-weight:800;
-  font-size:15px;cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s;
-}
+.btn-dl-full{flex:1;padding:12px;background:linear-gradient(135deg,var(--gold),var(--gold2));
+  border:none;border-radius:12px;color:#1a1a2e;font-weight:800;font-size:15px;
+  cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s}
 .btn-dl-full:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(226,176,74,.4)}
-.btn-cls{
-  padding:12px 20px;background:var(--card-bg);border:1px solid var(--border);
-  border-radius:12px;color:var(--text);cursor:pointer;
-  font-family:'Nunito',sans-serif;font-size:14px;transition:.2s;
-}
-.btn-cls:hover{background:var(--card-bg2)}
+.btn-cls{padding:12px 20px;background:var(--card);border:1px solid var(--border);
+  border-radius:12px;color:var(--text);cursor:pointer;font-family:'Nunito',sans-serif;
+  font-size:14px;transition:.2s}
+.btn-cls:hover{background:var(--card2)}
 
-/* Toast */
-.toasts{
-  position:fixed;bottom:22px;right:22px;z-index:999;
-  display:flex;flex-direction:column;gap:8px;
-}
-.toast{
-  background:var(--bg2);border:1px solid var(--border);
-  border-radius:12px;padding:13px 18px;font-size:13px;
-  font-weight:600;box-shadow:var(--shadow);
-  animation:tin .3s ease;max-width:300px;
-  display:flex;align-items:center;gap:8px;
-}
+/* TOAST */
+.toasts{position:fixed;bottom:22px;right:22px;z-index:999;display:flex;flex-direction:column;gap:8px}
+.toast{background:var(--ink2);border:1px solid var(--border);border-radius:12px;
+  padding:13px 18px;font-size:13px;font-weight:600;box-shadow:var(--shadow);
+  animation:tin .3s ease;max-width:300px;display:flex;align-items:center;gap:8px}
 @keyframes tin{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
 .toast.ok{border-left:3px solid var(--teal)}
 .toast.er{border-left:3px solid var(--rose)}
 .toast.in{border-left:3px solid var(--blue)}
 
-/* Progress */
-.progress-bar{
-  width:100%;height:6px;background:var(--card-bg);
-  border-radius:3px;margin-top:12px;overflow:hidden;display:none;
-}
-.progress-fill{
-  height:100%;background:linear-gradient(90deg,var(--gold),var(--teal));
-  border-radius:3px;transition:width .2s;
-}
+.progress-bar{width:100%;height:6px;background:rgba(255,255,255,.08);border-radius:3px;margin-top:12px;overflow:hidden;display:none}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:3px;transition:width .2s}
 
-/* RESPONSIVE */
 @media(max-width:768px){
   aside{display:none}
   .admin-stats{grid-template-columns:repeat(2,1fr)}
   .hero{padding:22px}
   main{padding:16px}
   .bla-header,.bla-row{grid-template-columns:1fr 80px 80px}
-  .bla-header>:nth-child(3),.bla-row>:nth-child(3),
-  .bla-header>:last-child,.bla-row>:last-child{display:none}
-  .cat-selector{flex-direction:column;align-items:flex-start}
+  .bla-header>:nth-child(3),.bla-row>:nth-child(3),.bla-header>:last-child,.bla-row>:last-child{display:none}
 }
 </style>
 </head>
 <body>
 
 <!-- LOGIN OVERLAY -->
-<div class="login-overlay" id="loginOverlay" style="display:none;">
+<div class="login-overlay" id="loginOverlay">
   <div class="login-box">
     <h2>🔐 Воридшавӣ ба Идоракунӣ</h2>
     <input type="password" id="loginPassword" placeholder="Паролро ворид кунед..." onkeypress="if(event.key==='Enter')checkPassword()">
@@ -494,7 +303,7 @@ main{flex:1;padding:28px;overflow-x:hidden}
 
 <!-- NAV -->
 <nav>
-  <div class="logo">📚 eKitob Pro</div>
+  <div class="logo">📚 eKitob</div>
   <div class="nav-search">
     <span class="si">🔍</span>
     <input type="text" id="searchInput" placeholder="Китобро ҷустуҷӯ кунед..." oninput="onSearch(this.value)">
@@ -502,7 +311,6 @@ main{flex:1;padding:28px;overflow-x:hidden}
   <div class="nav-btns">
     <button class="nav-btn active" id="btnLib" onclick="showPage('library')">📚 Китобхона</button>
     <button class="nav-btn" id="btnAdmin" onclick="requestAdminAccess()">⚙️ Идоракунӣ</button>
-    <button class="theme-toggle" onclick="toggleTheme()" title="Иваз кардани тема">🌓</button>
   </div>
 </nav>
 
@@ -511,9 +319,8 @@ main{flex:1;padding:28px;overflow-x:hidden}
 <!-- SIDEBAR -->
 <aside id="sidebar">
   <div class="sb-title">Навигатсия</div>
-  <div class="sb-item active" id="sb-all" onclick="filterCat('all')">
-    <span class="ic">🏠</span> Ҳама<span class="sb-count" id="cnt-all">0</span>
-  </div>
+  <div class="sb-item active" id="sb-all" onclick="filterCat('all')"><span class="ic">🏠</span> Ҳама<span class="sb-count" id="cnt-all">0</span></div>
+
   <div class="sb-title" style="margin-top:12px">Категорияҳо</div>
   <div class="sb-item" id="sb-badei" onclick="filterCat('badei')"><span class="ic">📖</span> Бадеӣ<span class="sb-count" id="cnt-badei">0</span></div>
   <div class="sb-item" id="sb-takhasus" onclick="filterCat('takhasus')"><span class="ic">🎓</span> Тахассусӣ<span class="sb-count" id="cnt-takhasus">0</span></div>
@@ -528,6 +335,7 @@ main{flex:1;padding:28px;overflow-x:hidden}
 
 <!-- MAIN -->
 <main>
+
   <!-- LIBRARY PAGE -->
   <div id="libraryPage">
     <div class="hero">
@@ -553,8 +361,9 @@ main{flex:1;padding:28px;overflow-x:hidden}
       <button class="fb active" onclick="filterType('',this)">Ҳама</button>
       <button class="fb" onclick="filterType('pdf',this)">📄 PDF</button>
       <button class="fb" onclick="filterType('video',this)">🎬 Видео</button>
-      <button class="fb" onclick="filterType('audio',this)">🎵 Аудио</button>
       <button class="fb" onclick="filterType('docx',this)">📝 Word</button>
+      <button class="fb" onclick="filterType('pptx',this)">📊 PPT</button>
+      <button class="fb" onclick="filterType('xlsx',this)">📈 Excel</button>
     </div>
 
     <div class="grid" id="booksGrid"></div>
@@ -568,14 +377,6 @@ main{flex:1;padding:28px;overflow-x:hidden}
         <p>Аввал категорияро интихоб кунед, баъд файл ё папка ворид кунед</p>
       </div>
 
-      <!-- STORAGE INFO -->
-      <div class="storage-info">
-        <strong>💾 Нигаҳдории маълумот:</strong> IndexedDB (то 2 GB+) — 
-        Ҳатто видеоҳои калон низ бе мушкил сабт мешаванд!
-        <div class="storage-bar"><div class="storage-fill" id="storageFill" style="width:0%"></div></div>
-        <small id="storageText">Истифода: ҳисоб карда истодааст...</small>
-      </div>
-
       <div class="admin-stats">
         <div class="astat"><div class="v" id="aTotal">0</div><div class="l">📚 Ҷамъи китобҳо</div></div>
         <div class="astat"><div class="v" id="aCats">0</div><div class="l">🗂️ Категорияҳо</div></div>
@@ -584,14 +385,14 @@ main{flex:1;padding:28px;overflow-x:hidden}
       </div>
 
       <!-- PASSWORD SETTINGS -->
-      <div class="password-settings">
-        <span style="font-weight:700;">🔑 Илова кардани парол (ихтиёрӣ):</span>
+      <div class="password-section">
+        <span>🔑 Парол барои идоракунӣ:</span>
         <input type="text" id="newPassword" placeholder="Пароли нав...">
-        <button class="btn-save" onclick="savePassword()">💾 Сабт</button>
+        <button onclick="savePassword()">💾 Сабт</button>
         <span style="font-size:11px;color:var(--text2);margin-left:8px;">агар холӣ монад, парол талаб намешавад</span>
       </div>
 
-      <!-- CATEGORY SELECTOR + UPLOAD -->
+      <!-- CATEGORY SELECTOR -->
       <div class="cat-selector">
         <label>🗂️ Категорияро интихоб кунед:</label>
         <select id="adminCatSelect">
@@ -602,29 +403,17 @@ main{flex:1;padding:28px;overflow-x:hidden}
       <!-- UPLOAD ZONE -->
       <div class="upload-zone" id="uploadZone" 
            onclick="triggerUpload()"
-           ondragover="dragOver(event)" 
-           ondragleave="dragLeave(event)" 
-           ondrop="dropFiles(event)">
+           ondragover="dragOver(event)" ondragleave="dragLeave(event)" ondrop="dropFiles(event)">
         <div class="uz-icon">📂</div>
         <h3>Файлҳоро ин ҷо кашед ё пахш кунед</h3>
         <p>PDF, Word, PowerPoint, Excel, Видео — ҳама намуд дастгирӣ мешавад</p>
-        <p style="margin-top:8px;color:var(--gold);font-weight:700">
-          ⚡ Якбора чандин файл ва ё тамоми папкаро ворид кардан мумкин
-        </p>
-        <p style="margin-top:4px;font-size:12px;color:var(--teal)">
-          💪 Файлҳои калон (500 MB+) низ дастгирӣ мешаванд!
-        </p>
-        <div class="progress-bar" id="progressBar">
-          <div class="progress-fill" id="progressFill"></div>
-        </div>
-        <input type="file" id="fileInput" multiple
-          accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.mp4,.avi,.mkv,.mov,.webm,.mp3,.wav,.ogg,.jpg,.jpeg,.png,.gif,.webp,.txt,.csv,.zip,.rar"
-          onchange="handleFiles(this.files)">
-        <input type="file" id="folderInput" webkitdirectory multiple
-          onchange="handleFiles(this.files)" style="display:none;">
+        <p style="margin-top:8px;color:var(--gold);font-weight:700">⚡ Якбора чандин файл ва ё тамоми папкаро ворид кардан мумкин</p>
+        <div class="progress-bar" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
+        <input type="file" id="fileInput" multiple accept="*/*" onchange="handleFiles(this.files)">
+        <input type="file" id="folderInput" webkitdirectory multiple onchange="handleFiles(this.files)" style="display:none;">
       </div>
 
-      <!-- BOOK LIST ADMIN -->
+      <!-- BOOK LIST -->
       <div class="book-list-admin" id="adminBookList">
         <div class="bla-header">
           <div>Номи китоб</div>
@@ -636,13 +425,9 @@ main{flex:1;padding:28px;overflow-x:hidden}
         <div id="adminRows"></div>
       </div>
 
-      <!-- BUTTON БАРОИ ТОЗА КАРДАНИ ХАМА -->
-      <button class="btn-rm" style="margin-top:16px;padding:10px 20px;width:100%;" 
-              onclick="if(confirm('ҲАМАИ китобҳоро нест мекунед? Ин амал бозгашт надорад!'))clearAllBooks()">
-        🗑️ Ҳамаи китобҳоро нест кардан
-      </button>
     </div>
   </div>
+
 </main>
 </div>
 
@@ -664,14 +449,13 @@ main{flex:1;padding:28px;overflow-x:hidden}
 <div class="toasts" id="toasts"></div>
 
 <script>
-// ==================== IndexedDB БАРОИ ФАЙЛҲОИ КАЛОН ====================
-const DB_NAME = 'eKitobDB';
-const DB_VERSION = 1;
+// ==================== IndexedDB ====================
+const DB_NAME = 'eKitobDB_v3';
 let db = null;
 
 function openDB() {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open(DB_NAME, DB_VERSION);
+    const request = indexedDB.open(DB_NAME, 2);
     
     request.onupgradeneeded = (e) => {
       const database = e.target.result;
@@ -685,29 +469,28 @@ function openDB() {
     
     request.onsuccess = (e) => {
       db = e.target.result;
+      console.log('✅ IndexedDB омода аст');
       resolve(db);
     };
     
     request.onerror = (e) => {
-      console.error('IndexedDB error:', e.target.error);
+      console.error('❌ Хато:', e.target.error);
       reject(e.target.error);
     };
   });
 }
 
-// Сабти китоб дар IndexedDB
-function saveBookToDB(book) {
+async function saveBook(book) {
   return new Promise((resolve, reject) => {
     const tx = db.transaction('books', 'readwrite');
     const store = tx.objectStore('books');
     store.put(book);
-    tx.oncomplete = () => resolve();
+    tx.oncomplete = resolve;
     tx.onerror = (e) => reject(e.target.error);
   });
 }
 
-// Хондани ҳамаи китобҳо аз IndexedDB
-function getAllBooksFromDB() {
+async function getAllBooks() {
   return new Promise((resolve, reject) => {
     const tx = db.transaction('books', 'readonly');
     const store = tx.objectStore('books');
@@ -717,41 +500,27 @@ function getAllBooksFromDB() {
   });
 }
 
-// Нест кардани китоб аз IndexedDB
-function deleteBookFromDB(id) {
+async function deleteBookFromDB(id) {
   return new Promise((resolve, reject) => {
     const tx = db.transaction('books', 'readwrite');
     const store = tx.objectStore('books');
     store.delete(id);
-    tx.oncomplete = () => resolve();
+    tx.oncomplete = resolve;
     tx.onerror = (e) => reject(e.target.error);
   });
 }
 
-// Тоза кардани ҳамаи китобҳо
-function clearAllBooksFromDB() {
-  return new Promise((resolve, reject) => {
-    const tx = db.transaction('books', 'readwrite');
-    const store = tx.objectStore('books');
-    store.clear();
-    tx.oncomplete = () => resolve();
-    tx.onerror = (e) => reject(e.target.error);
-  });
-}
-
-// Сабти танзимот
-function saveSetting(key, value) {
+async function saveSetting(key, value) {
   return new Promise((resolve, reject) => {
     const tx = db.transaction('settings', 'readwrite');
     const store = tx.objectStore('settings');
     store.put({ key, value });
-    tx.oncomplete = () => resolve();
+    tx.oncomplete = resolve;
     tx.onerror = (e) => reject(e.target.error);
   });
 }
 
-// Хондани танзимот
-function getSetting(key) {
+async function getSetting(key) {
   return new Promise((resolve, reject) => {
     const tx = db.transaction('settings', 'readonly');
     const store = tx.objectStore('settings');
@@ -803,26 +572,14 @@ function fmtSize(bytes) {
 function autoCategory(name, ext) {
   const n = name.toLowerCase();
   if (['mp4','avi','mkv','mov','webm'].includes(ext)) return 'video';
-  if (['mp3','wav','ogg','m4a'].includes(ext)) return 'audio';
-  if (n.includes('иқтисод') || n.includes('iqtisod') || n.includes('молия') || n.includes('finance') || n.includes('бизнес')) return 'iktisod';
-  if (n.includes('информатик') || n.includes('computer') || n.includes('программ') || n.includes('python') || n.includes('java') || n.includes('html') || n.includes('css')) return 'informatika';
-  if (n.includes('мактаб') || n.includes('синф') || n.includes('дарс') || n.includes('китоби') || n.includes('school')) return 'maktabi';
-  if (n.includes('илм') || n.includes('физик') || n.includes('химия') || n.includes('математик') || n.includes('биолог') || n.includes('кимё')) return 'ilmi';
-  if (n.includes('роман') || n.includes('ҳикоя') || n.includes('шеър') || n.includes('адабиёт') || n.includes('novel') || n.includes('story')) return 'badei';
-  if (n.includes('тахассус') || n.includes('касб') || n.includes('professional') || n.includes('техник') || n.includes('muhandis')) return 'takhasus';
+  if (['mp3','wav','ogg'].includes(ext)) return 'audio';
+  if (n.includes('иқтисод') || n.includes('iqtisod') || n.includes('молия')) return 'iktisod';
+  if (n.includes('информатик') || n.includes('программ') || n.includes('python') || n.includes('html')) return 'informatika';
+  if (n.includes('мактаб') || n.includes('синф') || n.includes('дарс')) return 'maktabi';
+  if (n.includes('илм') || n.includes('физик') || n.includes('химия') || n.includes('математик') || n.includes('биолог')) return 'ilmi';
+  if (n.includes('роман') || n.includes('ҳикоя') || n.includes('шеър') || n.includes('адабиёт')) return 'badei';
+  if (n.includes('тахассус') || n.includes('касб') || n.includes('muhandis')) return 'takhasus';
   return 'boshqa';
-}
-
-// ==================== ТЕМА ====================
-function toggleTheme() {
-  document.body.classList.toggle('light-mode');
-  const isLight = document.body.classList.contains('light-mode');
-  saveSetting('theme', isLight ? 'light' : 'dark');
-}
-
-async function loadTheme() {
-  const saved = await getSetting('theme');
-  if (saved === 'light') document.body.classList.add('light-mode');
 }
 
 // ==================== ПАРОЛ ====================
@@ -830,11 +587,7 @@ async function savePassword() {
   const pass = document.getElementById('newPassword').value.trim();
   ADMIN_PASSWORD = pass;
   await saveSetting('admin_password', pass);
-  if (pass) {
-    toast('✅ Парол сабт шуд!', 'ok');
-  } else {
-    toast('ℹ️ Парол тоза карда шуд. Идоракунӣ озод аст.', 'in');
-  }
+  toast(pass ? '✅ Парол сабт шуд!' : 'ℹ️ Парол тоза карда шуд. Идоракунӣ озод аст.', pass ? 'ok' : 'in');
   document.getElementById('newPassword').value = '';
 }
 
@@ -843,7 +596,7 @@ function requestAdminAccess() {
     showPage('admin');
     return;
   }
-  document.getElementById('loginOverlay').style.display = 'flex';
+  document.getElementById('loginOverlay').classList.add('open');
   document.getElementById('loginPassword').value = '';
   document.getElementById('loginError').style.display = 'none';
   document.getElementById('loginPassword').focus();
@@ -853,9 +606,9 @@ function checkPassword() {
   const entered = document.getElementById('loginPassword').value.trim();
   if (entered === ADMIN_PASSWORD) {
     isAdminLoggedIn = true;
-    document.getElementById('loginOverlay').style.display = 'none';
+    document.getElementById('loginOverlay').classList.remove('open');
     showPage('admin');
-    toast('✅ Хуш омадед ба идоракунӣ!', 'ok');
+    toast('✅ Хуш омадед!', 'ok');
   } else {
     document.getElementById('loginError').style.display = 'block';
     document.getElementById('loginPassword').value = '';
@@ -863,7 +616,7 @@ function checkPassword() {
   }
 }
 
-// ==================== ФАЙЛ ҚАБУЛ (бо IndexedDB) ====================
+// ==================== ФАЙЛҲО ====================
 function triggerUpload() {
   if (!selectedAdminCat) {
     toast('⚠️ Лутфан аввал категорияро интихоб кунед!', 'er');
@@ -898,115 +651,60 @@ async function handleFiles(files) {
   let done = 0;
   let totalSize = 0;
 
-  for (const file of arr) {
-    totalSize += file.size;
-  }
+  for (const file of arr) totalSize += file.size;
 
   for (let i = 0; i < arr.length; i++) {
     const file = arr[i];
     
-    // Хондани файл ҳамчун ArrayBuffer (барои файлҳои калон беҳтар аст)
-    const arrayBuffer = await readFileAsArrayBuffer(file);
-    
-    const ext = getExt(file.name);
-    const nameNoExt = file.name.replace(/\.[^.]+$/, '');
-    const cat = selectedAdminCat;
-    const id = Date.now() + '_' + i + '_' + Math.random().toString(36).slice(2);
-
-    const book = {
-      id,
-      name: nameNoExt,
-      filename: file.name,
-      ext,
-      category: cat,
-      size: file.size,
-      mimeType: file.type || getMimeType(ext),
-      added: new Date().toISOString()
-    };
-
-    // Барои PDF, расмҳо ва файлҳои хурд - Data URL
-    // Барои видео ва файлҳои калон - ArrayBuffer
-    if (file.size < 10 * 1024 * 1024) { // < 10 MB
-      book.data = await readFileAsDataURL(file);
-    } else {
-      // Барои файлҳои калон ArrayBuffer сабт мекунем
-      book.data = arrayBuffer;
+    try {
+      const arrayBuffer = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target.result);
+        reader.onerror = reject;
+        reader.readAsArrayBuffer(file);
+      });
+      
+      const ext = getExt(file.name);
+      const nameNoExt = file.name.replace(/\.[^.]+$/, '');
+      
+      const book = {
+        id: Date.now() + '_' + i + '_' + Math.random().toString(36).slice(2, 8),
+        name: nameNoExt,
+        filename: file.name,
+        ext: ext,
+        category: selectedAdminCat,
+        size: file.size,
+        mimeType: file.type || 'application/octet-stream',
+        data: arrayBuffer,
+        added: new Date().toISOString()
+      };
+      
+      await saveBook(book);
+      BOOKS.push(book);
+      
+      done++;
+      fill.style.width = (done / arr.length * 100) + '%';
+    } catch (err) {
+      console.error('Хато:', file.name, err);
     }
-
-    await saveBookToDB(book);
-    BOOKS.push(book);
-
-    done++;
-    fill.style.width = (done / arr.length * 100) + '%';
-
-    // Навсозии прогресс
-    document.getElementById('uploadZone').querySelector('h3').textContent = 
-      `📤 Воридкунӣ: ${done} / ${arr.length}...`;
   }
-
+  
   bar.style.display = 'none';
   fill.style.width = '0';
-  document.getElementById('uploadZone').querySelector('h3').textContent = 
-    'Файлҳоро ин ҷо кашед ё пахш кунед';
-
+  
   renderAll();
-  updateStorageInfo();
-  toast(`✅ ${done} та файл ба "${CATS[selectedAdminCat]?.name || selectedAdminCat}" илова шуд! (${fmtSize(totalSize)})`, 'ok');
+  toast(`✅ ${done} та файл ба "${CATS[selectedAdminCat]?.name}" илова шуд! (${fmtSize(totalSize)})`, 'ok');
 }
 
-function readFileAsArrayBuffer(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = (e) => resolve(e.target.result);
-    reader.onerror = reject;
-    reader.readAsArrayBuffer(file);
-  });
-}
-
-function readFileAsDataURL(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = (e) => resolve(e.target.result);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
-}
-
-function getMimeType(ext) {
-  const types = {
-    'pdf': 'application/pdf',
-    'doc': 'application/msword',
-    'docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    'mp4': 'video/mp4',
-    'avi': 'video/x-msvideo',
-    'mkv': 'video/x-matroska',
-    'mov': 'video/quicktime',
-    'webm': 'video/webm',
-    'mp3': 'audio/mpeg',
-    'wav': 'audio/wav',
-    'ogg': 'audio/ogg',
-    'jpg': 'image/jpeg',
-    'jpeg': 'image/jpeg',
-    'png': 'image/png',
-    'gif': 'image/gif',
-    'webp': 'image/webp',
-  };
-  return types[ext] || 'application/octet-stream';
-}
-
-function dragOver(e) {
-  e.preventDefault();
+function dragOver(e) { 
+  e.preventDefault(); 
   if (!selectedAdminCat) {
     toast('⚠️ Лутфан аввал категорияро интихоб кунед!', 'er');
     return;
   }
-  document.getElementById('uploadZone').classList.add('drag');
+  document.getElementById('uploadZone').classList.add('drag'); 
 }
-
-function dragLeave() {
-  document.getElementById('uploadZone').classList.remove('drag');
-}
-
+function dragLeave() { document.getElementById('uploadZone').classList.remove('drag'); }
 function dropFiles(e) {
   e.preventDefault();
   document.getElementById('uploadZone').classList.remove('drag');
@@ -1023,7 +721,6 @@ function getFiltered() {
   if (currentCat !== 'all') books = books.filter(b => b.category === currentCat);
   if (currentType) {
     if (currentType === 'video') books = books.filter(b => ['mp4','avi','mkv','mov','webm'].includes(b.ext));
-    else if (currentType === 'audio') books = books.filter(b => ['mp3','wav','ogg'].includes(b.ext));
     else books = books.filter(b => b.ext === currentType || (currentType === 'docx' && b.ext === 'doc'));
   }
   if (searchQ) {
@@ -1036,46 +733,39 @@ function getFiltered() {
 function renderBooks() {
   const books = getFiltered();
   const grid = document.getElementById('booksGrid');
-  const catName = currentCat === 'all' ? 'Ҳама' : (CATS[currentCat]?.name || currentCat);
-  document.getElementById('secTitle').textContent =
-    (searchQ ? `🔍 "${searchQ}" — ${books.length} натиҷа` :
-    (currentCat === 'all' ? '📚 Ҳама китобҳо' : (CATS[currentCat]?.ic || '') + ' ' + catName));
-
+  
   if (!books.length) {
-    grid.innerHTML = `<div class="empty">
-      <div class="ei">${searchQ ? '🔍' : '📭'}</div>
+    grid.innerHTML = `<div class="empty"><div class="ei">${searchQ ? '🔍' : '📭'}</div>
       <h3>${searchQ ? 'Ёфт нашуд' : 'Китоб нест'}</h3>
-      <p>${searchQ ? 'Дигар калима нависед' : 'Идоракунӣ → файл илова кунед'}</p>
-    </div>`;
+      <p>${searchQ ? 'Дигар калима нависед' : 'Идоракунӣ → файл илова кунед'}</p></div>`;
     return;
   }
-  grid.innerHTML = books.map((b, i) => bookCard(b, i)).join('');
-}
+  
+  grid.innerHTML = books.map((b, i) => {
+    const extCls = ['mp4','avi','mkv','mov','webm'].includes(b.ext) ? 'mp4' : 
+                   ['mp3','wav','ogg'].includes(b.ext) ? 'mp3' : b.ext;
+    const badgeCls = ['mp4','avi','mkv','mov','webm'].includes(b.ext) ? 'video' :
+                     ['mp3','wav','ogg'].includes(b.ext) ? 'audio' : b.ext;
+    const delay = (i % 8) * 0.04;
+    const catInfo = CATS[b.category] || CATS.boshqa;
+    const size = fmtSize(b.size);
 
-function bookCard(b, i) {
-  const extCls = ['mp4','avi','mkv','mov','webm'].includes(b.ext) ? 'mp4' : 
-                 ['mp3','wav','ogg'].includes(b.ext) ? 'mp3' : b.ext;
-  const badgeCls = ['mp4','avi','mkv','mov','webm'].includes(b.ext) ? 'video' :
-                   ['mp3','wav','ogg'].includes(b.ext) ? 'audio' : b.ext;
-  const delay = (i % 8) * 0.04;
-  const catInfo = CATS[b.category] || CATS.boshqa;
-  const size = fmtSize(b.size);
-
-  return `<div class="bcard" style="animation-delay:${delay}s" onclick="openBook('${b.id}')">
-    <div class="bcover ${extCls}">
-      ${getIcon(b.ext)}
-      <div class="ext-badge ${badgeCls}">${b.ext.toUpperCase()}</div>
-      <div class="cat-chip">${catInfo.ic} ${catInfo.name}</div>
-    </div>
-    <div class="binfo">
-      <div class="bname">${b.name}</div>
-      <div class="bmeta"><span>${size}</span></div>
-    </div>
-    <div class="bactions">
-      <button class="ba view" onclick="event.stopPropagation();openBook('${b.id}')">👁️ Кушодан</button>
-      <button class="ba dl" onclick="event.stopPropagation();downloadBook('${b.id}')">⬇️ Олиш</button>
-    </div>
-  </div>`;
+    return `<div class="bcard" style="animation-delay:${delay}s">
+      <div class="bcover ${extCls}">
+        ${getIcon(b.ext)}
+        <div class="ext-badge ${badgeCls}">${b.ext.toUpperCase()}</div>
+        <div class="cat-chip">${catInfo.ic} ${catInfo.name}</div>
+      </div>
+      <div class="binfo">
+        <div class="bname">${b.name}</div>
+        <div class="bmeta"><span>${size}</span></div>
+      </div>
+      <div class="bactions">
+        <button class="ba view" onclick="openBook('${b.id}')">👁️ Кушодан</button>
+        <button class="ba dl" onclick="downloadBook('${b.id}')">⬇️ Олиш</button>
+      </div>
+    </div>`;
+  }).join('');
 }
 
 function renderStats() {
@@ -1095,14 +785,12 @@ function renderStats() {
   const catsUsed = Object.keys(CATS).filter(c => BOOKS.some(b => b.category === c));
   document.getElementById('aCats').textContent = catsUsed.length;
 
-  // Sidebar counts
   document.getElementById('cnt-all').textContent = BOOKS.length;
   Object.keys(CATS).forEach(c => {
     const el = document.getElementById('cnt-' + c);
     if (el) el.textContent = BOOKS.filter(b => b.category === c).length;
   });
 
-  // Admin category select
   const sel = document.getElementById('adminCatSelect');
   sel.innerHTML = '<option value="">-- Интихоб кунед --</option>' +
     Object.entries(CATS).map(([k, v]) => 
@@ -1114,9 +802,7 @@ function renderStats() {
 function renderAdminList() {
   const rows = document.getElementById('adminRows');
   if (!BOOKS.length) {
-    rows.innerHTML = `<div style="padding:30px;text-align:center;color:var(--text2)">
-      📭 Ҳоло китоб нест. Аввал категорияро интихоб кунед, баъд файл ворид кунед.
-    </div>`;
+    rows.innerHTML = `<div style="padding:30px;text-align:center;color:var(--text2)">📭 Ҳоло китоб нест. Аввал категорияро интихоб кунед, баъд файл ворид кунед.</div>`;
     return;
   }
   rows.innerHTML = [...BOOKS].reverse().map(b => `
@@ -1136,19 +822,10 @@ function renderAdminList() {
   `).join('');
 }
 
-function updateStorageInfo() {
-  const totalSize = BOOKS.reduce((sum, b) => sum + (b.size || 0), 0);
-  document.getElementById('storageText').textContent = 
-    `Истифода: ${fmtSize(totalSize)} / ~2 GB дастрас`;
-  const percent = Math.min((totalSize / (2 * 1073741824)) * 100, 100);
-  document.getElementById('storageFill').style.width = percent + '%';
-}
-
 function renderAll() {
   renderStats();
   renderBooks();
   renderAdminList();
-  updateStorageInfo();
 }
 
 // ==================== АМАЛИЁТҲО ====================
@@ -1168,7 +845,7 @@ function filterCat(cat) {
 function filterType(type, btn) {
   currentType = type;
   document.querySelectorAll('.fb').forEach(f => f.classList.remove('active'));
-  if (btn) btn.classList.add('active');
+  btn.classList.add('active');
   renderBooks();
 }
 
@@ -1180,15 +857,16 @@ function onSearch(q) {
 function setView(mode, btn) {
   currentView = mode;
   document.querySelectorAll('.vb').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  document.getElementById('booksGrid').classList.toggle('lv', mode === 'list');
+  btn.classList.add('active');
+  const grid = document.getElementById('booksGrid');
+  grid.classList.toggle('lv', mode === 'list');
 }
 
 async function changeCategory(id, cat) {
   const book = BOOKS.find(b => b.id === id);
   if (book) {
     book.category = cat;
-    await saveBookToDB(book);
+    await saveBook(book);
     renderAll();
     toast('✅ Категория сабт шуд', 'ok');
   }
@@ -1202,109 +880,18 @@ async function removeBook(id) {
   toast('🗑️ Ўчирилди', 'er');
 }
 
-async function clearAllBooks() {
-  await clearAllBooksFromDB();
-  BOOKS = [];
-  renderAll();
-  toast('🗑️ Ҳамаи китобҳо нест карда шуданд', 'er');
-}
-
 function showPage(page) {
   document.getElementById('libraryPage').style.display = page === 'library' ? '' : 'none';
   document.getElementById('adminPage').style.display = page === 'admin' ? '' : 'none';
   document.getElementById('btnLib').classList.toggle('active', page === 'library');
   document.getElementById('btnAdmin').classList.toggle('active', page === 'admin');
-  if (page === 'admin') {
-    renderAdminList();
-    renderStats();
-    updateStorageInfo();
-  }
+  if (page === 'admin') renderAll();
 }
 
-// ==================== MODAL (БО ДАСТГИРИИ ФАЙЛҲОИ КАЛОН) ====================
+// ==================== MODAL ====================
 async function openBook(id) {
-  const book = await getBookWithData(id);
-  if (!book) return;
-
-  document.getElementById('mtitle').textContent = book.name;
-  document.getElementById('mtags').innerHTML = `
-    <span class="mtag t">${book.ext.toUpperCase()}</span>
-    <span class="mtag c">${CATS[book.category]?.ic || ''} ${CATS[book.category]?.name || book.category}</span>
-    <span class="mtag s">${fmtSize(book.size)}</span>`;
-
-  let content = '';
-  const isVideo = ['mp4','avi','mkv','mov','webm'].includes(book.ext);
-  const isAudio = ['mp3','wav','ogg','m4a'].includes(book.ext);
-  const isImage = ['jpg','jpeg','png','gif','webp'].includes(book.ext);
-  const isPdf = book.ext === 'pdf';
-  const isText = ['txt','csv','json','xml'].includes(book.ext);
-
-  // Сохтани URL барои намоиш
-  let blobUrl = null;
-  
-  if (book.data) {
-    if (typeof book.data === 'string' && book.data.startsWith('data:')) {
-      // Data URL - омода аст
-      blobUrl = book.data;
-    } else if (book.data instanceof ArrayBuffer) {
-      // ArrayBuffer - ба Blob URL табдил мекунем
-      const blob = new Blob([book.data], { type: book.mimeType || 'application/octet-stream' });
-      blobUrl = URL.createObjectURL(blob);
-    }
-  }
-
-  if (isPdf && blobUrl) {
-    content = `<iframe class="reader" src="${blobUrl}" title="${book.name}"></iframe>`;
-  } else if (isVideo && blobUrl) {
-    content = `<video controls style="width:100%;max-height:500px;border-radius:14px;margin-bottom:16px;background:#000">
-      <source src="${blobUrl}" type="${book.mimeType || 'video/' + book.ext}">
-      Браузери шумо видео дастгирӣ намекунад.
-    </video>`;
-  } else if (isAudio && blobUrl) {
-    content = `<div style="text-align:center;padding:40px">
-      <div style="font-size:80px;margin-bottom:20px">🎵</div>
-      <audio controls style="width:100%;margin-bottom:16px;">
-        <source src="${blobUrl}" type="${book.mimeType || 'audio/' + book.ext}">
-      </audio>
-    </div>`;
-  } else if (isImage && blobUrl) {
-    content = `<img src="${blobUrl}" style="width:100%;max-height:500px;object-fit:contain;border-radius:14px;margin-bottom:16px;" alt="${book.name}">`;
-  } else {
-    content = `<div class="empty" style="padding:40px">
-      <div class="ei">📁</div>
-      <h3>${book.filename}</h3>
-      <p>Барои дидани ин файл, онро зеркашӣ кунед.</p>
-    </div>`;
-  }
-
-  content += `<div class="mactions">
-    <button class="btn-dl-full" onclick="downloadBook('${book.id}')">⬇️ Зеркашӣ кардан — ${fmtSize(book.size)}</button>
-    <button class="btn-cls" onclick="closeModal()">Бастан</button>
-  </div>`;
-
-  document.getElementById('mbody').innerHTML = content;
-  document.getElementById('moverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-
-  // Тоза кардани Blob URL ҳангоми бастан
-  const cleanup = () => {
-    if (blobUrl && blobUrl.startsWith('blob:')) {
-      URL.revokeObjectURL(blobUrl);
-    }
-  };
-  
-  document.querySelector('.mclose').onclick = () => { cleanup(); closeModal(); };
-  document.getElementById('moverlay').onclick = (e) => {
-    if (e.target === document.getElementById('moverlay')) { cleanup(); closeModal(); }
-  };
-}
-
-async function getBookWithData(id) {
-  // Аввал дар BOOKS (хотира) ҷустуҷӯ мекунем
   let book = BOOKS.find(b => b.id === id);
-  
-  // Агар дар хотира набошад, аз IndexedDB мехонем
-  if (!book || !book.data) {
+  if (!book) {
     const tx = db.transaction('books', 'readonly');
     const store = tx.objectStore('books');
     book = await new Promise((resolve, reject) => {
@@ -1313,50 +900,85 @@ async function getBookWithData(id) {
       request.onerror = reject;
     });
   }
+  if (!book) return;
   
-  return book;
+  document.getElementById('mtitle').textContent = book.name;
+  document.getElementById('mtags').innerHTML = `
+    <span class="mtag t">${book.ext.toUpperCase()}</span>
+    <span class="mtag c">${CATS[book.category]?.ic || ''} ${CATS[book.category]?.name || book.category}</span>
+    <span class="mtag s">${fmtSize(book.size)}</span>`;
+
+  let blobUrl = null;
+  if (book.data instanceof ArrayBuffer) {
+    const blob = new Blob([book.data], { type: book.mimeType || 'application/octet-stream' });
+    blobUrl = URL.createObjectURL(blob);
+  }
+  
+  const isVideo = ['mp4','avi','mkv','mov','webm'].includes(book.ext);
+  const isAudio = ['mp3','wav','ogg'].includes(book.ext);
+  const isImage = ['jpg','jpeg','png','gif','webp'].includes(book.ext);
+  const isPdf = book.ext === 'pdf';
+  
+  let content = '';
+  if (isPdf && blobUrl) {
+    content = `<iframe class="reader" src="${blobUrl}" title="${book.name}"></iframe>`;
+  } else if (isVideo && blobUrl) {
+    content = `<video controls style="width:100%;max-height:480px;border-radius:14px;background:#000">
+      <source src="${blobUrl}" type="${book.mimeType}"></video>`;
+  } else if (isAudio && blobUrl) {
+    content = `<div style="text-align:center"><audio controls><source src="${blobUrl}" type="${book.mimeType}"></audio></div>`;
+  } else if (isImage && blobUrl) {
+    content = `<img src="${blobUrl}" style="width:100%;border-radius:14px;max-height:480px;object-fit:contain;">`;
+  } else {
+    content = `<div style="text-align:center;padding:40px"><div style="font-size:60px;">📁</div><h3>${book.filename}</h3></div>`;
+  }
+  
+  content += `<div class="mactions">
+    <button class="btn-dl-full" onclick="downloadBook('${book.id}')">⬇️ Зеркашӣ — ${fmtSize(book.size)}</button>
+    <button class="btn-cls" onclick="closeModal()">Бастан</button>
+  </div>`;
+  
+  document.getElementById('mbody').innerHTML = content;
+  document.getElementById('moverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  window._modalBlobUrl = blobUrl;
+}
+
+function closeModal() {
+  document.getElementById('moverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  if (window._modalBlobUrl && window._modalBlobUrl.startsWith('blob:')) {
+    URL.revokeObjectURL(window._modalBlobUrl);
+  }
+}
+
+function closeModalBg(e) {
+  if (e.target === document.getElementById('moverlay')) closeModal();
 }
 
 async function downloadBook(id) {
-  const book = await getBookWithData(id);
-  if (!book || !book.data) {
-    toast('❌ Файл ёфт нашуд', 'er');
-    return;
+  let book = BOOKS.find(b => b.id === id);
+  if (!book) {
+    const tx = db.transaction('books', 'readonly');
+    const store = tx.objectStore('books');
+    book = await new Promise((resolve, reject) => {
+      const request = store.get(id);
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = reject;
+    });
   }
-
-  let url;
-  if (typeof book.data === 'string' && book.data.startsWith('data:')) {
-    url = book.data;
-  } else if (book.data instanceof ArrayBuffer) {
-    const blob = new Blob([book.data], { type: book.mimeType || 'application/octet-stream' });
-    url = URL.createObjectURL(blob);
-  } else {
-    toast('❌ Формати нодуруст', 'er');
-    return;
-  }
-
+  if (!book?.data) return;
+  
+  const blob = new Blob([book.data], { type: book.mimeType || 'application/octet-stream' });
+  const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
   a.download = book.filename;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  
-  if (url.startsWith('blob:')) {
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-  }
-  
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
   toast('⬇️ Зеркашӣ оғоз шуд!', 'ok');
-}
-
-function closeModal() {
-  document.getElementById('moverlay').classList.remove('open');
-  document.getElementById('mbody').innerHTML = '';
-  document.body.style.overflow = '';
-}
-
-function closeModalBg(e) {
-  if (e.target === document.getElementById('moverlay')) closeModal();
 }
 
 // ==================== TOAST ====================
@@ -1369,15 +991,14 @@ function toast(msg, type = 'in') {
   setTimeout(() => el.remove(), 3300);
 }
 
-// ==================== КЛАВИАТУРА ====================
+// ==================== EVENT LISTENERS ====================
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     closeModal();
-    document.getElementById('loginOverlay').style.display = 'none';
+    document.getElementById('loginOverlay').classList.remove('open');
   }
 });
 
-// ==================== ИНТИХОБИ КАТЕГОРИЯ ДАР АДМИН ====================
 document.getElementById('adminCatSelect').addEventListener('change', function() {
   selectedAdminCat = this.value;
   if (selectedAdminCat) {
@@ -1387,25 +1008,21 @@ document.getElementById('adminCatSelect').addEventListener('change', function() 
 
 // ==================== ОҒОЗ ====================
 async function init() {
-  await openDB();
-  
-  // Боркунии китобҳо аз IndexedDB
-  BOOKS = await getAllBooksFromDB();
-  
-  // Боркунии танзимот
-  ADMIN_PASSWORD = await getSetting('admin_password') || '';
-  await loadTheme();
-  
-  // Навсозии парол дар форма
-  document.getElementById('newPassword').value = '';
-  
-  renderAll();
+  try {
+    await openDB();
+    BOOKS = await getAllBooks();
+    ADMIN_PASSWORD = await getSetting('admin_password') || '';
+    document.getElementById('newPassword').value = '';
+    renderAll();
+    console.log('✅ eKitob бо IndexedDB омода аст!');
+    console.log('📚 Шумораи китобҳо:', BOOKS.length);
+    console.log('💾 Нигаҳдорӣ: IndexedDB (то 2 GB+)');
+  } catch (err) {
+    console.error('❌ Хато:', err);
+  }
 }
 
-init().catch(err => {
-  console.error('Init error:', err);
-  toast('❌ Хато дар боркунии маълумот!', 'er');
-});
+init();
 </script>
 </body>
 </html>
